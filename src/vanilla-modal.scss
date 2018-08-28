@@ -1,0 +1,134 @@
+*, ::after, ::before, :host {
+  box-sizing: border-box;
+}
+.vanilla-modal {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 500;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #2C3E50;
+
+  &:not(.opened) {
+    display: none !important;
+  }
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    min-height: 100%;
+    background: rgba(0,0,0,.9);
+  }
+  &:not(.opened) &__overlay {
+    opacity: 0;
+    transition: opacity .01s ease;
+    transition-delay: .01s;
+  }
+  &:not(.opened) &__modal {
+    animation: none;
+    opacity: 0;
+  }
+  &.opened &__overlay {
+    opacity: .6;
+    transition: opacity .2s ease;
+  }
+  &.opened &__modal {
+    opacity: 1;
+  }
+  &__modal {
+    display: inline-block;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: visible;
+    animation: modal-slide-in 0.80s 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both, modal-fade-in 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+  &__dialog {
+    position: relative;
+    background: #FFF;
+    border-radius: 4px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .4);
+  }
+  &__description {
+    color: #FFF;
+    text-align: center;
+  }
+  &:focus {
+    background: #FFF;
+  }
+  &__title {
+    line-height: 1;
+    margin: 0 0 4px;
+    padding: 16px;
+    border-bottom: solid 1px #DBE5EC;
+  }
+  &__content {
+    overflow: auto;
+    min-height: 250px;
+    padding: 48px 16px;
+  }
+  &[fullblead-content] &__content {
+    padding: 0;
+  }
+  &__footer {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 0;
+    text-align: right;
+    background-color: #EDF2F6;
+    border-top: 1px solid #DBE5EC;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+    slot {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+    }
+  }
+  &__footer[hidden] {
+    display: none;
+  }
+  &__close {
+    background: none;
+    border: none;
+    position: absolute;
+    top: -12.5px;
+    right: -12.5px;
+    color: rgb(255,255,255);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: #CD2A19;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  @keyframes modal-slide-in {
+    from { transform: translateY(400px);}
+    to { transform: translateY(0); }
+  }
+  @keyframes modal-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

@@ -1,0 +1,13 @@
+<div class="vanilla-modal__overlay" tabindex="-1"></div>
+<div class="vanilla-modal__modal">
+  <div class="vanilla-modal__dialog">
+    <h3 id="modal-label" class="vanilla-modal__title" hidden="{{!st.title}}"><span>{{st.title}}</span></h3>
+    <div class="vanilla-modal__content">
+      <slot name="content"></slot>
+    </div>
+    <div class="vanilla-modal__footer" hidden="{{st.nofooter}}">
+      <slot name="footer"></slot>
+    </div>
+    <button type="button" class="vanilla-modal__close" on-click="this.close" hidden="{{st.noclose}}">X</button>
+  </div>
+</div>

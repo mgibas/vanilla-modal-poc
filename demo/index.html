@@ -1,0 +1,37 @@
+<html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>vanilla-modal demo</title>
+  <script src="/vanilla-modal.js" defer></script>
+  <link rel="stylesheet" href="/vanilla-modal.css"></link>
+</head>
+<body>
+  <button onclick="openModal(modal)">Open</button>
+  <button onclick="openModal(modalNoClose)">Open no close</button>
+  <button onclick="openModal(modalNoFooter)">Open no footer</button>
+
+  <vanilla-modal id="modal" title="Some modal">
+    <p slot="content">This is some slotted content</p>
+    <button slot="footer">save</button>
+    <button slot="footer" onclick="closeModal(modal)">cancel</button>
+  </vanilla-modal>
+
+  <vanilla-modal id="modalNoClose" title="No close modal" noclose="noclose">
+    <p slot="content">This is some slotted content</p>
+    <button slot="footer">save</button>
+    <button slot="footer" onclick="closeModal(modalNoClose)">cancel</button>
+  </vanilla-modal>
+
+  <vanilla-modal id="modalNoFooter" title="No footer modal" nofooter="nofooter">
+    <p slot="content">This is some slotted content</p>
+  </vanilla-modal>
+  <script>
+    function openModal(modal) {
+      modal.open()
+    }
+    function closeModal(modal) {
+      modal.close()
+    }
+  </script>
+</body>
+</html>

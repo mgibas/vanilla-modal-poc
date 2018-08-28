@@ -1,0 +1,32 @@
+{
+  "name": "vanilla-modal-poc",
+  "version": "0.0.1",
+  "main": "vanilla-modal.js",
+  "repository": "https://github.com/mgibas/vanilla-modal-poc.git",
+  "author": "Maciej Gibas <gibasmaciej@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@vanilla-ftw/vanilla-dom-loader": "^0.0.10"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^1.0.0",
+    "cssnano": "^4.1.0",
+    "cssnano-preset-advanced": "^4.0.0",
+    "mini-css-extract-plugin": "^0.4.2",
+    "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead"
+  ]
+}
